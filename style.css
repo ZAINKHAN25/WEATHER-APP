@@ -4,6 +4,9 @@
 body {
   background-color: #A64258;
   font-family: 'Poiret One', sans-serif;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
 }
 
 .widget {
@@ -106,6 +109,38 @@ body {
     border-radius: 100%;
     padding: 10px;
 }
+
+.divofclound {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  z-index: 5;
+  animation: cloundidharudahr 4s linear infinite;
+  display: none;
+}
+
+.imgofclound {
+  width: 100vw;
+  height: 95vh;
+  object-fit: cover;
+}
+
+.blocklevel{
+  display: block !important;
+}
+
+
+@keyframes cloundidharudahr {
+  0% {
+    transform: translate(-100%, 0%);
+  }
+  100% {
+    transform: translate(100%, 0%);
+  }
+}
+
+
 
 
 @media (max-width: 670px){

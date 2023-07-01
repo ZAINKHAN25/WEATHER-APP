@@ -14,6 +14,7 @@ function getWeather() {
         "Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"
     ];
     
+    var divofclound = document.querySelector('.divofclound')
     var weatherIcon = document.querySelector('.weatherIcon');
     var temperature = document.querySelector('.temtwo');
     var weatherCondition = document.querySelector('.weatherCondition');
@@ -27,8 +28,15 @@ function getWeather() {
             return response.json();
         })
         .then((data) => {
-            place.innerHTML = data.name + ", " + data.sys.country;
-            temperature.innerHTML = data.main.temp;
+            divofclound.classList.add('blocklevel');
+
+            setTimeout(() => {
+                divofclound.classList.remove('blocklevel');
+            }, 4000);
+            setTimeout(() => {
+                
+                place.innerHTML = data.name + ", " + data.sys.country;
+                temperature.innerHTML = data.main.temp;
             weatherCondition.innerHTML = data.weather[0].main;
             date.innerHTML = dateoftoday.getDate() + " " + months[dateoftoday.getMonth()];
             function getWeatherIcon(condition) {
@@ -51,6 +59,7 @@ function getWeather() {
             }
             var conditionIcon = getWeatherIcon(weatherCondition.innerHTML);
             weatherIcon.innerHTML = '<i class="wi ' + conditionIcon + '"></i>';
+        }, 2000);
         })
         .catch((error) => {
             alert("Please enter a correct city name in the input");
